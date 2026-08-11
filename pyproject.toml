@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "seakan-framework"
+version = "0.3.0"
+description = "SeaKAN physics-only framework for parameterised wave-seabed interaction"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "matplotlib>=3.8",
+  "numpy>=1.26",
+  "torch>=2.4",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[project.scripts]
+seakan = "mpm_kan_generalization.cli:main"
+seakan-score = "mpm_kan_generalization.scoring:main"
+seakan-inverse = "mpm_kan_generalization.inverse:main"
+seakan-field-inverse = "mpm_kan_generalization.field_inverse:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 92
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
