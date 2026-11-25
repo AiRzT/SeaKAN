@@ -1,0 +1,476 @@
+{
+  "metric_definition": {
+    "relative_l2": "||prediction - digitized curve||_2 / ||digitized curve||_2",
+    "interpolation": "MPM-KAN prediction linearly interpolated at digitized depths",
+    "selection_role": "validation/parameter selection only; not included in training loss"
+  },
+  "summary": {
+    "analytical_mean_relative_l2": 0.021248426880123072,
+    "analytical_max_relative_l2": 0.06897924931487917
+  },
+  "cases": {
+    "saturated_fine": {
+      "pore_pressure": {
+        "analytical": {
+          "n": 13,
+          "relative_l2": 0.006968329426779594,
+          "rmse": 0.006019571211452945,
+          "mae": 0.004306891005345204,
+          "max_abs": 0.013662366022327732
+        },
+        "numerical": {
+          "n": 65,
+          "relative_l2": 0.008253828825629817,
+          "rmse": 0.007156715114592085,
+          "mae": 0.005241235974635167,
+          "max_abs": 0.021342244690083723
+        }
+      },
+      "sigma_x_eff": {
+        "analytical": {
+          "n": 13,
+          "relative_l2": 0.027295527363076503,
+          "rmse": 0.003728506321738258,
+          "mae": 0.0028648405667100014,
+          "max_abs": 0.009205161705862719
+        },
+        "numerical": {
+          "n": 88,
+          "relative_l2": 0.03185923099239451,
+          "rmse": 0.00441800697458387,
+          "mae": 0.0032685656987838786,
+          "max_abs": 0.013737451428100539
+        }
+      },
+      "sigma_z_eff": {
+        "analytical": {
+          "n": 13,
+          "relative_l2": 0.06897924931487917,
+          "rmse": 0.008549672964333324,
+          "mae": 0.0054862065633750744,
+          "max_abs": 0.02495533115463977
+        },
+        "numerical": {
+          "n": 80,
+          "relative_l2": 0.06483444463444524,
+          "rmse": 0.007543612634541914,
+          "mae": 0.005751528617603593,
+          "max_abs": 0.01929476924304449
+        }
+      },
+      "tau_xz": {
+        "analytical": {
+          "n": 13,
+          "relative_l2": 0.009026624981791223,
+          "rmse": 0.001823914986126736,
+          "mae": 0.0015997318838661258,
+          "max_abs": 0.0034352174374060462
+        },
+        "numerical": {
+          "n": 92,
+          "relative_l2": 0.01259175904841902,
+          "rmse": 0.0027387120679095225,
+          "mae": 0.002511210590638032,
+          "max_abs": 0.004376412396268375
+        }
+      }
+    },
+    "saturated_coarse": {
+      "pore_pressure": {
+        "analytical": {
+          "n": 12,
+          "relative_l2": 0.005154497030485111,
+          "rmse": 0.004604480954357653,
+          "mae": 0.004201618743089349,
+          "max_abs": 0.006507645755905123
+        },
+        "numerical": {
+          "n": 57,
+          "relative_l2": 0.0017713726277959322,
+          "rmse": 0.0015679039747910663,
+          "mae": 0.001358710216219065,
+          "max_abs": 0.0034932207942982574
+        }
+      },
+      "sigma_x_eff": {
+        "analytical": {
+          "n": 13,
+          "relative_l2": 0.008523884985012374,
+          "rmse": 0.0014245056685550227,
+          "mae": 0.0012828906257246564,
+          "max_abs": 0.0026189400111958777
+        },
+        "numerical": {
+          "n": 96,
+          "relative_l2": 0.021151543277706956,
+          "rmse": 0.0034210737099036256,
+          "mae": 0.003218392622465627,
+          "max_abs": 0.01001815474244439
+        }
+      },
+      "sigma_z_eff": {
+        "analytical": {
+          "n": 13,
+          "relative_l2": 0.027353397792966267,
+          "rmse": 0.0024249772064999747,
+          "mae": 0.00191543116193944,
+          "max_abs": 0.00535404433794931
+        },
+        "numerical": {
+          "n": 68,
+          "relative_l2": 0.03307850013598923,
+          "rmse": 0.0031066829069131344,
+          "mae": 0.0029296422881774486,
+          "max_abs": 0.005294901160782878
+        }
+      },
+      "tau_xz": {
+        "analytical": {
+          "n": 13,
+          "relative_l2": 0.011058397288284878,
+          "rmse": 0.0023145184776325115,
+          "mae": 0.001752674154071919,
+          "max_abs": 0.005376476778224365
+        },
+        "numerical": {
+          "n": 85,
+          "relative_l2": 0.02031271683670637,
+          "rmse": 0.00448046430848704,
+          "mae": 0.003950084943745054,
+          "max_abs": 0.007015626847576839
+        }
+      }
+    },
+    "unsaturated_fine": {
+      "pore_pressure": {
+        "analytical": {
+          "n": 15,
+          "relative_l2": 0.040677868914455365,
+          "rmse": 0.019922675847954308,
+          "mae": 0.011743953135317656,
+          "max_abs": 0.0589329255558978
+        },
+        "numerical": {
+          "n": 108,
+          "relative_l2": 0.07487780736464958,
+          "rmse": 0.04346385128027144,
+          "mae": 0.029344235728236263,
+          "max_abs": 0.09836137847756077
+        }
+      },
+      "sigma_x_eff": {
+        "analytical": {
+          "n": 13,
+          "relative_l2": 0.05901161651077021,
+          "rmse": 0.009595809801304037,
+          "mae": 0.008484222716954917,
+          "max_abs": 0.02143289945025406
+        },
+        "numerical": {
+          "n": 70,
+          "relative_l2": 0.08910188824398846,
+          "rmse": 0.015167471652993716,
+          "mae": 0.0064881745419133234,
+          "max_abs": 0.08778708942651048
+        }
+      },
+      "sigma_z_eff": {
+        "analytical": {
+          "n": 16,
+          "relative_l2": 0.013419670366130086,
+          "rmse": 0.0071242952311173745,
+          "mae": 0.004936074915618243,
+          "max_abs": 0.02073190593562746
+        },
+        "numerical": {
+          "n": 109,
+          "relative_l2": 0.06591994437457468,
+          "rmse": 0.033048529522824846,
+          "mae": 0.020719774977638997,
+          "max_abs": 0.08365349870400152
+        }
+      },
+      "tau_xz": {
+        "analytical": {
+          "n": 13,
+          "relative_l2": 0.026846625669114273,
+          "rmse": 0.004295262823456033,
+          "mae": 0.003593242521450987,
+          "max_abs": 0.0069085270810057275
+        },
+        "numerical": {
+          "n": 80,
+          "relative_l2": 0.04627002431966552,
+          "rmse": 0.00786060299744117,
+          "mae": 0.007142058029684861,
+          "max_abs": 0.011482217977337922
+        }
+      }
+    },
+    "unsaturated_coarse": {
+      "pore_pressure": {
+        "analytical": {
+          "n": 11,
+          "relative_l2": 0.0037822574055099627,
+          "rmse": 0.002201667185793308,
+          "mae": 0.001809651956168193,
+          "max_abs": 0.004475672587861079
+        },
+        "numerical": {
+          "n": 89,
+          "relative_l2": 0.015654752938060474,
+          "rmse": 0.009749447454795614,
+          "mae": 0.009585762421631703,
+          "max_abs": 0.012856617988135588
+        }
+      },
+      "sigma_x_eff": {
+        "analytical": {
+          "n": 10,
+          "relative_l2": 0.016963725486840584,
+          "rmse": 0.0030878975220759285,
+          "mae": 0.002671031564556678,
+          "max_abs": 0.005091799190765328
+        },
+        "numerical": {
+          "n": 81,
+          "relative_l2": 0.027338540188970438,
+          "rmse": 0.005163083583070857,
+          "mae": 0.005044442932575942,
+          "max_abs": 0.006970192295033817
+        }
+      },
+      "sigma_z_eff": {
+        "analytical": {
+          "n": 11,
+          "relative_l2": 0.005934979485178465,
+          "rmse": 0.0029588909307879377,
+          "mae": 0.0019051257199744263,
+          "max_abs": 0.007496146196454584
+        },
+        "numerical": {
+          "n": 112,
+          "relative_l2": 0.016872831024571492,
+          "rmse": 0.007798812786515482,
+          "mae": 0.006784699384661649,
+          "max_abs": 0.012293579396666532
+        }
+      },
+      "tau_xz": {
+        "analytical": {
+          "n": 11,
+          "relative_l2": 0.008978178060695055,
+          "rmse": 0.001668346531822155,
+          "mae": 0.0014384030705297305,
+          "max_abs": 0.0030672292426380185
+        },
+        "numerical": {
+          "n": 80,
+          "relative_l2": 0.011584422162881868,
+          "rmse": 0.002236395790532679,
+          "mae": 0.0018678154116962594,
+          "max_abs": 0.004626708081317266
+        }
+      }
+    }
+  },
+  "data_quality": {
+    "data_dir": "figure7_data",
+    "parsing": "positional (four x/y column pairs per case)",
+    "depth_policy": "raw values retained; clipped to [-1, 0] only for interpolation",
+    "files": {
+      "figure7a.csv": {
+        "rows": 108,
+        "columns": 16,
+        "point_counts": {
+          "saturated_coarse": {
+            "analytical": 12,
+            "numerical": 57
+          },
+          "saturated_fine": {
+            "analytical": 13,
+            "numerical": 65
+          },
+          "unsaturated_coarse": {
+            "analytical": 11,
+            "numerical": 89
+          },
+          "unsaturated_fine": {
+            "analytical": 15,
+            "numerical": 108
+          }
+        },
+        "duplicate_depth_counts": {
+          "saturated_coarse": {
+            "analytical": 0,
+            "numerical": 0
+          },
+          "saturated_fine": {
+            "analytical": 0,
+            "numerical": 0
+          },
+          "unsaturated_coarse": {
+            "analytical": 0,
+            "numerical": 0
+          },
+          "unsaturated_fine": {
+            "analytical": 0,
+            "numerical": 5
+          }
+        },
+        "raw_depth_range": [
+          -0.996806051285028,
+          -0.00142721724074545
+        ],
+        "header_warnings": []
+      },
+      "figure7b.csv": {
+        "rows": 96,
+        "columns": 16,
+        "point_counts": {
+          "saturated_coarse": {
+            "analytical": 13,
+            "numerical": 96
+          },
+          "saturated_fine": {
+            "analytical": 13,
+            "numerical": 88
+          },
+          "unsaturated_coarse": {
+            "analytical": 10,
+            "numerical": 81
+          },
+          "unsaturated_fine": {
+            "analytical": 13,
+            "numerical": 70
+          }
+        },
+        "duplicate_depth_counts": {
+          "saturated_coarse": {
+            "analytical": 0,
+            "numerical": 0
+          },
+          "saturated_fine": {
+            "analytical": 0,
+            "numerical": 0
+          },
+          "unsaturated_coarse": {
+            "analytical": 0,
+            "numerical": 0
+          },
+          "unsaturated_fine": {
+            "analytical": 0,
+            "numerical": 0
+          }
+        },
+        "raw_depth_range": [
+          -1.00179659967381,
+          0.000972254269142825
+        ],
+        "header_warnings": [
+          "column 14: 'Unsaturated_Fine_Numerical_x' parsed as 'Unsaturated_Fine_Analytical_y'",
+          "column 15: 'Unsaturated_Fine_Numerical_x.1' parsed as 'Unsaturated_Fine_Numerical_x'"
+        ]
+      },
+      "figure7c.csv": {
+        "rows": 112,
+        "columns": 16,
+        "point_counts": {
+          "saturated_coarse": {
+            "analytical": 13,
+            "numerical": 68
+          },
+          "saturated_fine": {
+            "analytical": 13,
+            "numerical": 80
+          },
+          "unsaturated_coarse": {
+            "analytical": 11,
+            "numerical": 112
+          },
+          "unsaturated_fine": {
+            "analytical": 16,
+            "numerical": 109
+          }
+        },
+        "duplicate_depth_counts": {
+          "saturated_coarse": {
+            "analytical": 0,
+            "numerical": 0
+          },
+          "saturated_fine": {
+            "analytical": 0,
+            "numerical": 1
+          },
+          "unsaturated_coarse": {
+            "analytical": 0,
+            "numerical": 0
+          },
+          "unsaturated_fine": {
+            "analytical": 0,
+            "numerical": 10
+          }
+        },
+        "raw_depth_range": [
+          -1.00201092044211,
+          0.000774214066068479
+        ],
+        "header_warnings": [
+          "column 14: 'Unsaturated_Fine_Numerical_x' parsed as 'Unsaturated_Fine_Analytical_y'",
+          "column 15: 'Unsaturated_Fine_Numerical_x.1' parsed as 'Unsaturated_Fine_Numerical_x'"
+        ]
+      },
+      "figure7d.csv": {
+        "rows": 92,
+        "columns": 16,
+        "point_counts": {
+          "saturated_coarse": {
+            "analytical": 13,
+            "numerical": 85
+          },
+          "saturated_fine": {
+            "analytical": 13,
+            "numerical": 92
+          },
+          "unsaturated_coarse": {
+            "analytical": 11,
+            "numerical": 80
+          },
+          "unsaturated_fine": {
+            "analytical": 13,
+            "numerical": 80
+          }
+        },
+        "duplicate_depth_counts": {
+          "saturated_coarse": {
+            "analytical": 0,
+            "numerical": 0
+          },
+          "saturated_fine": {
+            "analytical": 0,
+            "numerical": 0
+          },
+          "unsaturated_coarse": {
+            "analytical": 0,
+            "numerical": 0
+          },
+          "unsaturated_fine": {
+            "analytical": 0,
+            "numerical": 0
+          }
+        },
+        "raw_depth_range": [
+          -1.0014450567239,
+          -0.00119850447485126
+        ],
+        "header_warnings": []
+      }
+    },
+    "warnings": [
+      "figure7b.csv: column 14: 'Unsaturated_Fine_Numerical_x' parsed as 'Unsaturated_Fine_Analytical_y'",
+      "figure7b.csv: column 15: 'Unsaturated_Fine_Numerical_x.1' parsed as 'Unsaturated_Fine_Numerical_x'",
+      "figure7c.csv: column 14: 'Unsaturated_Fine_Numerical_x' parsed as 'Unsaturated_Fine_Analytical_y'",
+      "figure7c.csv: column 15: 'Unsaturated_Fine_Numerical_x.1' parsed as 'Unsaturated_Fine_Numerical_x'"
+    ]
+  }
+}

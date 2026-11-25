@@ -1,0 +1,154 @@
+{
+  "metric_definition": {
+    "relative_l2": "||model-data||_2 / ||data||_2",
+    "interpolation": "periodic linear interpolation at digitized angles",
+    "training_use": "digitized Figure 9 series are loaded only after physics training"
+  },
+  "mpm_kan": {
+    "experimental": {
+      "n": 8,
+      "relative_l2": 0.1569801801085421,
+      "rmse": 0.053292875627679814,
+      "mae": 0.03571681718294019,
+      "max_abs": 0.1337821823435803,
+      "bias": -0.023690054188434628
+    },
+    "poroelasticity": {
+      "n": 268,
+      "relative_l2": 0.408484109407934,
+      "rmse": 0.24427962768563163,
+      "mae": 0.2265781498586808,
+      "max_abs": 0.3360532566256761,
+      "bias": -0.2265781498586808
+    },
+    "darcy": {
+      "n": 242,
+      "relative_l2": 0.4155694254045806,
+      "rmse": 0.24940616576062477,
+      "mae": 0.23255425876070882,
+      "max_abs": 0.34725827914074964,
+      "bias": -0.23255425876070882
+    },
+    "jeng_numerical": {
+      "n": 154,
+      "relative_l2": 0.26569015712386657,
+      "rmse": 0.11378632012426157,
+      "mae": 0.1009456469255158,
+      "max_abs": 0.2224483042641904,
+      "bias": -0.001992673984368332
+    },
+    "paper_this_study": {
+      "n": 163,
+      "relative_l2": 0.22631749178851726,
+      "rmse": 0.09771198789442849,
+      "mae": 0.08564420925765841,
+      "max_abs": 0.1622832632391228,
+      "bias": -0.022559647734196598
+    },
+    "finite_difference_reference": {
+      "n": 721,
+      "relative_l2": 0.32912152251355054,
+      "rmse": 0.10798723167786106,
+      "mae": 0.09560142158286943,
+      "max_abs": 0.1997823758751207,
+      "bias": 0.026947655089051097
+    }
+  },
+  "data_quality": {
+    "file": "figure9_mpm_kan\\data\\figure9.csv",
+    "rows": 268,
+    "columns": [
+      "Experimental_data_theta",
+      "Experimental_data_r",
+      "Poroelasticity_solution_theta",
+      "Poroelasticity_solution_r",
+      "Darcy's_solution_theta",
+      "Darcy's_solution_r",
+      "Numerical_result_theta",
+      "Numerical_result_r",
+      "Numerical_result_of_this_study_theta",
+      "Numerical_result_of_this_study_r"
+    ],
+    "sources": {
+      "experimental": {
+        "n": 8,
+        "theta_range": [
+          0.000512209572577582,
+          5.49116523359685
+        ],
+        "radius_range": [
+          0.0489323861163013,
+          0.59296001996556
+        ],
+        "duplicate_angles": 0
+      },
+      "poroelasticity": {
+        "n": 268,
+        "theta_range": [
+          0.00614356478000566,
+          6.26557631847905
+        ],
+        "radius_range": [
+          0.117289341996505,
+          0.794151369835135
+        ],
+        "duplicate_angles": 0
+      },
+      "darcy": {
+        "n": 242,
+        "theta_range": [
+          0.0182443095953273,
+          6.27505817700932
+        ],
+        "radius_range": [
+          0.0962371827968736,
+          0.80612947792056
+        ],
+        "duplicate_angles": 0
+      },
+      "jeng_numerical": {
+        "n": 154,
+        "theta_range": [
+          0.00963831675019122,
+          6.22770293944425
+        ],
+        "radius_range": [
+          0.0139878975003012,
+          0.612247059922817
+        ],
+        "duplicate_angles": 0
+      },
+      "paper_this_study": {
+        "n": 163,
+        "theta_range": [
+          0.0368035817945049,
+          6.27720036799965
+        ],
+        "radius_range": [
+          0.034745999367598,
+          0.620995500624285
+        ],
+        "duplicate_angles": 0
+      }
+    },
+    "warnings": []
+  },
+  "final_physics_loss": {
+    "total": 117.57215881347656,
+    "momentum": 1.0565812587738037,
+    "fluid": 0.01670861802995205,
+    "strong": 48.12339401245117,
+    "top_traction": 0.009697772562503815,
+    "outer_flux": 0.16156579554080963,
+    "pipe_flux": 0.009924327954649925,
+    "roughness": 0.7897211909294128
+  },
+  "finite_difference_reference": {
+    "degrees_of_freedom": 49830,
+    "relative_linear_residual": 8.086355673105689e-12
+  },
+  "prediction_range": {
+    "minimum": 0.03930031135678291,
+    "maximum": 0.46008604764938354
+  }
+}

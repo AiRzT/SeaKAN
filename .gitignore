@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+.venv/
+/runs/
+/results/
+/outputs/
+/reproduction/exp1_kinn_and_ablation/runs/
+/reproduction/exp2_mf_seakan_and_costs/runs/
+/reproduction/reproduced_figures/

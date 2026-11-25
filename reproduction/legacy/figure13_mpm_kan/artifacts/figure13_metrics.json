@@ -1,0 +1,181 @@
+{
+  "metric_definition": {
+    "relative_l2": "||model-data||_2 / ||data||_2",
+    "interpolation": "linear depth interpolation at each digitized source depth",
+    "training_use": "Figure 13 CSV files and the independent BVP solution are loaded only after physics-only MPM-KAN training"
+  },
+  "mpm_kan": {
+    "pressure": {
+      "numerical": {
+        "n": 141,
+        "relative_l2": 0.02211871475293834,
+        "rmse": 0.010045599704138422,
+        "mae": 0.0092948027699217,
+        "max_abs": 0.01807628893636748,
+        "bias": -0.001376355596019875
+      },
+      "analytical": {
+        "n": 136,
+        "relative_l2": 0.022516221275446623,
+        "rmse": 0.010253284259461959,
+        "mae": 0.008528196225925457,
+        "max_abs": 0.021889796105757482,
+        "bias": -0.0013239557406276295
+      },
+      "independent_bvp_reference": {
+        "n": 501,
+        "relative_l2": 0.022654005889127086,
+        "rmse": 0.006589660882617342,
+        "mae": 0.004788668434377566,
+        "max_abs": 0.01781393288135924,
+        "bias": 0.0005532125728024576
+      }
+    },
+    "vertical_effective_stress": {
+      "numerical": {
+        "n": 136,
+        "relative_l2": 0.028283437289882755,
+        "rmse": 0.011976395051863303,
+        "mae": 0.008895636531865356,
+        "max_abs": 0.02819998702638407,
+        "bias": -0.00437963621229831
+      },
+      "analytical": {
+        "n": 139,
+        "relative_l2": 0.022231798646248753,
+        "rmse": 0.009514531691453519,
+        "mae": 0.0066700959326009505,
+        "max_abs": 0.024383258743499003,
+        "bias": -0.004628279984749012
+      },
+      "independent_bvp_reference": {
+        "n": 501,
+        "relative_l2": 0.020688473120465997,
+        "rmse": 0.009548503553868519,
+        "mae": 0.006906922779103934,
+        "max_abs": 0.026730350421532267,
+        "bias": -0.0016825658731335845
+      }
+    }
+  },
+  "digitized_numerical_vs_analytical": {
+    "pressure": {
+      "n": 141,
+      "relative_l2": 0.012601639831193903,
+      "rmse": 0.005745638648265148,
+      "mae": 0.004742335908219193,
+      "max_abs": 0.016808355116061047,
+      "bias": -5.59050914674658e-05
+    },
+    "vertical_effective_stress": {
+      "n": 136,
+      "relative_l2": 0.014606827409278732,
+      "rmse": 0.006219500608482566,
+      "mae": 0.004925309118716226,
+      "max_abs": 0.018255432046569015,
+      "bias": -0.00026804484908064574
+    }
+  },
+  "data_quality": {
+    "pressure": {
+      "file": "figure13_mpm_kan\\data\\figure13a.csv",
+      "rows": 141,
+      "columns": [
+        "Numerical_result_x",
+        "Numerical_result_y",
+        "Analytical_solution_x",
+        "Analytical_solution_y"
+      ],
+      "sources": {
+        "numerical": {
+          "n": 141,
+          "z_range": [
+            -34.9963044481553,
+            -10.0199602771148
+          ],
+          "value_range": [
+            0.0472643636317556,
+            0.997882593373831
+          ],
+          "duplicate_depths": 0
+        },
+        "analytical": {
+          "n": 136,
+          "z_range": [
+            -35.0189074745544,
+            -10.0764678431127
+          ],
+          "value_range": [
+            0.0454833458711147,
+            0.99654683005335
+          ],
+          "duplicate_depths": 0
+        }
+      }
+    },
+    "vertical_effective_stress": {
+      "file": "figure13_mpm_kan\\data\\figure13b.csv",
+      "rows": 139,
+      "columns": [
+        "Numerical_result_x",
+        "Numerical_result_y",
+        "Analytical_solution_x",
+        "Analytical_solution_y"
+      ],
+      "sources": {
+        "numerical": {
+          "n": 136,
+          "z_range": [
+            -35.00108616204,
+            -10.0533923183213
+          ],
+          "value_range": [
+            0.00419737271079867,
+            0.64714478430216
+          ],
+          "duplicate_depths": 0
+        },
+        "analytical": {
+          "n": 139,
+          "z_range": [
+            -34.9898837849212,
+            -10.0533923183213
+          ],
+          "value_range": [
+            0.00686889935176005,
+            0.658721399746326
+          ],
+          "duplicate_depths": 0
+        }
+      }
+    },
+    "warnings": []
+  },
+  "final_physics_loss": {
+    "total": 3.149236859904401,
+    "particle_momentum": 0.0017588306880399036,
+    "particle_fluid": 0.002277881295924722,
+    "p2g_momentum": 0.0011508219477645574,
+    "p2g_fluid": 0.002666623176512192,
+    "top_traction": 2.1010591138532793e-16,
+    "bottom_flux": 1.7820386181986043e-13,
+    "top_constraint": 2.078823023516815e-08,
+    "bottom_constraint": 4.2240490814476273e-07,
+    "boundary_augmented": 4.399761889363254e-05,
+    "roughness": 0.02154734633906107
+  },
+  "independent_bvp_reference": {
+    "maximum_rms_residual": 9.996288602672969e-10,
+    "mesh_nodes": 2192
+  },
+  "prediction_range": {
+    "pressure": [
+      0.033952180589506394,
+      1.0
+    ],
+    "vertical_effective_stress": [
+      1.0867623104385264e-08,
+      0.6521005311871734
+    ]
+  }
+}

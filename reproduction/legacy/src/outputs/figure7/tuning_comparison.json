@@ -1,0 +1,33 @@
+{
+  "metric": "relative L2 against digitized analytical points",
+  "data_used_in_training_loss": false,
+  "before": {
+    "saturated_fine": {
+      "pore_pressure": 0.01871053493247213,
+      "sigma_x_eff": 0.12671435792105948,
+      "sigma_z_eff": 0.16331991860264256,
+      "tau_xz": 0.11581498777877641
+    },
+    "unsaturated_fine": {
+      "pore_pressure": 0.03858347890940073,
+      "sigma_x_eff": 0.28167362112737,
+      "sigma_z_eff": 0.04437556080823896,
+      "tau_xz": 0.28799316220807825
+    }
+  },
+  "after": {
+    "saturated_fine": {
+      "pore_pressure": 0.006968329426779594,
+      "sigma_x_eff": 0.027295527363076503,
+      "sigma_z_eff": 0.06897924931487917,
+      "tau_xz": 0.009026624981791223
+    },
+    "unsaturated_fine": {
+      "pore_pressure": 0.040677868914455365,
+      "sigma_x_eff": 0.05901161651077021,
+      "sigma_z_eff": 0.013419670366130086,
+      "tau_xz": 0.026846625669114273
+    }
+  },
+  "selection_note": "Digitized curves were used only to compare candidate checkpoints and were not included in the optimization loss."
+}

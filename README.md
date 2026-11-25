@@ -2,7 +2,7 @@
 
 SeaKAN is a physics-only, parameter-conditioned framework for frequency-domain wave--seabed interaction. It combines a Kolmogorov--Arnold network (KAN) surrogate with material-point residual evaluation, particle-to-grid (P2G) aggregation, hard boundary transforms, augmented-Lagrangian boundary constraints, random-field conditioning, and frozen-model inverse analysis.
 
-This repository is a **code-only release** of the computational framework used in the accompanying manuscript. It intentionally contains no benchmark or experimental data, COMSOL models, trained checkpoints, generated figures, notebooks, logs, or manuscript files.
+The [manuscript reproduction guide](reproduction/README.md) contains the experiment-specific training and evaluation scripts, numerical reference fields, digitized comparison points, released model weights and figure generators. The core library and its command-line interfaces are described below.
 
 ## Framework modules
 
@@ -56,9 +56,9 @@ seakan-inverse --help
 seakan-field-inverse --help
 ```
 
-## Reproducibility boundary
+## Reproducing the results
 
-The repository exposes the numerical framework and its unit tests. Numerical values reported in the manuscript depend on external benchmark data, independent COMSOL solutions, selected random seeds, and trained weights; those artefacts are not part of this code-only release. Users should therefore treat the repository as an implementation release rather than a complete archive of the manuscript's data products.
+Install the experiment dependencies with `python -m pip install -e ".[reproduction]"`. Start with the CPU commands in the [reproduction guide](reproduction/README.md). The guide distinguishes evaluation of released weights, scoring of saved predictions, independent training, and regeneration of finite-element references. It also documents discrepancies found when checking the manuscript.
 
 ## Citation
 

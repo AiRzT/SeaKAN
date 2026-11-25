@@ -1,0 +1,361 @@
+{
+  "metric_definition": {
+    "relative_l2": "||model-data||_2 / ||data||_2",
+    "r_squared": "1 - SSE/SST using the untransformed amplitudes",
+    "explained_variance": "1 - Var(model-data)/Var(data); reported as a bias-insensitive diagnostic, not as R^2",
+    "interpolation": "periodic interpolation for full-circle profiles and linear interpolation on each exposed/embedded semicircle",
+    "training_use": "Figure 15 CSV files are opened only after coupled water-seabed physics training"
+  },
+  "mpm_kan": {
+    "test10": {
+      "experimental": {
+        "n": 8,
+        "relative_l2": 0.10036752211986154,
+        "mse": 0.00266153109658313,
+        "rmse": 0.05159002904227841,
+        "mae": 0.045216976938982634,
+        "max_abs": 0.09920995486778528,
+        "bias": -0.0024443891050475973,
+        "r_squared": 0.9443042837270931,
+        "explained_variance": 0.9444293185339344,
+        "reference_mean": 0.46521016828976164,
+        "reference_standard_deviation": 0.21860237477961375,
+        "reference_coefficient_of_variation": 0.4699002508549097
+      },
+      "pore_numerical": {
+        "n": 186,
+        "relative_l2": 0.11097452719648054,
+        "mse": 0.00479966774784111,
+        "rmse": 0.06927963443784263,
+        "mae": 0.05962382448453245,
+        "max_abs": 0.12127558755958634,
+        "bias": -0.048072074551851585,
+        "r_squared": 0.8876300812094435,
+        "explained_variance": 0.9417334890652397,
+        "reference_mean": 0.589081958687571,
+        "reference_standard_deviation": 0.2066714820889415,
+        "reference_coefficient_of_variation": 0.35083655006069037
+      }
+    },
+    "test49": {
+      "experimental": {
+        "n": 8,
+        "relative_l2": 0.08292676925335948,
+        "mse": 0.004433639434260967,
+        "rmse": 0.06658557977716321,
+        "mae": 0.061235355383990754,
+        "max_abs": 0.1138772108171584,
+        "bias": -0.02909206647835421,
+        "r_squared": 0.8717652633376457,
+        "explained_variance": 0.8962443074920999,
+        "reference_mean": 0.7811179206298371,
+        "reference_standard_deviation": 0.1859419338620978,
+        "reference_coefficient_of_variation": 0.23804591976608047
+      },
+      "experimental_upper_hydrodynamic": {
+        "n": 5,
+        "relative_l2": 0.05565556407174169,
+        "mse": 0.002594709595497675,
+        "rmse": 0.05093829203553723,
+        "mae": 0.04822983613950431,
+        "max_abs": 0.07588292648182982,
+        "bias": -0.017876665546772384,
+        "r_squared": -4.386937257010993,
+        "explained_variance": -3.7234597724994005,
+        "reference_mean": 0.9149785070009424,
+        "reference_standard_deviation": 0.021946911901929638,
+        "reference_coefficient_of_variation": 0.02398625949571844
+      },
+      "experimental_lower_pore": {
+        "n": 3,
+        "relative_l2": 0.15233245658458652,
+        "mse": 0.007498522498866455,
+        "rmse": 0.08659400960151029,
+        "mae": 0.08291122079146816,
+        "max_abs": 0.1138772108171584,
+        "bias": -0.047784401364323915,
+        "r_squared": 0.36221626594007517,
+        "explained_variance": 0.5564255732228933,
+        "reference_mean": 0.5580169433446617,
+        "reference_standard_deviation": 0.10843041750661571,
+        "reference_coefficient_of_variation": 0.19431384440892
+      },
+      "pore_numerical": {
+        "n": 90,
+        "relative_l2": 0.05858714625435687,
+        "mse": 0.0014523137549207446,
+        "rmse": 0.038109234509771314,
+        "mae": 0.033289452123452766,
+        "max_abs": 0.06904824969031187,
+        "bias": 0.011374984938073393,
+        "r_squared": 0.9395798276447165,
+        "explained_variance": 0.9449628126461858,
+        "reference_mean": 0.6317242330912939,
+        "reference_standard_deviation": 0.1550383884312214,
+        "reference_coefficient_of_variation": 0.24542099275272847
+      },
+      "hydrodynamic_numerical": {
+        "n": 116,
+        "relative_l2": 0.019035269083933524,
+        "mse": 0.00028952853445756224,
+        "rmse": 0.01701553803021116,
+        "mae": 0.014607653137175011,
+        "max_abs": 0.03345185730835254,
+        "bias": -0.009898041932493476,
+        "r_squared": -0.34922596569380615,
+        "explained_variance": 0.10732776633447016,
+        "reference_mean": 0.893775286143804,
+        "reference_standard_deviation": 0.01464884354958014,
+        "reference_coefficient_of_variation": 0.016389850756315515
+      },
+      "numerical_combined": {
+        "n": 206,
+        "relative_l2": 0.03544512823389311,
+        "mse": 0.0007975414948540982,
+        "rmse": 0.028240777164485014,
+        "mae": 0.022769604150597332,
+        "max_abs": 0.06904824969031187,
+        "bias": -0.0006040010667118336,
+        "r_squared": 0.9710159920879288,
+        "explained_variance": 0.9710292501657181,
+        "reference_mean": 0.7792869619946491,
+        "reference_standard_deviation": 0.16588129769450305,
+        "reference_coefficient_of_variation": 0.21286291928959805
+      }
+    }
+  },
+  "data_quality": {
+    "test10": {
+      "file": "figure15_mpm_kan\\data\\figure15a.csv",
+      "rows": 214,
+      "headers": [
+        "experimental_data_theta",
+        "experimental_data_r",
+        "abs(p)/p_0_numerical_model_theta",
+        "abs(p)/p_0_numerical_model_r"
+      ],
+      "experimental": {
+        "n": 8,
+        "theta_range": [
+          0.0095082444727117,
+          5.49605162719745
+        ],
+        "radius_range": [
+          0.196260587855852,
+          0.767928343877762
+        ],
+        "orphan_theta": 0,
+        "orphan_radius": 0,
+        "duplicate_theta": 0
+      },
+      "pore_numerical": {
+        "n": 186,
+        "theta_range": [
+          0.046660027555486,
+          6.28113939870158
+        ],
+        "radius_range": [
+          0.204721795398556,
+          0.830144743613734
+        ],
+        "orphan_theta": 28,
+        "orphan_radius": 0,
+        "duplicate_theta": 0
+      }
+    },
+    "test49": {
+      "file": "figure15_mpm_kan\\data\\figure15b.csv",
+      "rows": 116,
+      "headers": [
+        "experimental_data_theta",
+        "experimental_data_r",
+        "abs(p)/p_0_numerical_model_theta",
+        "abs(p)/p_0_numerical_model_r",
+        "abs(P)/p_0_numerical_model_theta",
+        "abs(P)/p_0_numerical_model_r"
+      ],
+      "experimental": {
+        "n": 8,
+        "theta_range": [
+          0.00109857141682568,
+          5.50069935337011
+        ],
+        "radius_range": [
+          0.404692331788464,
+          0.934036075170637
+        ],
+        "orphan_theta": 0,
+        "orphan_radius": 0,
+        "duplicate_theta": 0
+      },
+      "pore_numerical": {
+        "n": 90,
+        "theta_range": [
+          3.13887397466031,
+          6.28233065056476
+        ],
+        "radius_range": [
+          0.419231281140124,
+          0.915068841435668
+        ],
+        "orphan_theta": 0,
+        "orphan_radius": 0,
+        "duplicate_theta": 0
+      },
+      "hydrodynamic_numerical": {
+        "n": 116,
+        "theta_range": [
+          0.0,
+          3.13608230839594
+        ],
+        "radius_range": [
+          0.86582108027679,
+          0.918443601142595
+        ],
+        "orphan_theta": 0,
+        "orphan_radius": 0,
+        "duplicate_theta": 0
+      }
+    },
+    "warnings": [
+      "figure15a contains 28 numerical theta entries without matching radius values; they were ignored"
+    ]
+  },
+  "contact_continuity": {
+    "method": "raw network output from physics-trained compact contact-corner KANs",
+    "enabled": true,
+    "postprocessing_applied": false,
+    "figure15_training_data_used": false,
+    "support_definition": "trained local support angle stored in the checkpoint",
+    "support_angle_rad": 0.5244232466841979,
+    "support_angle_deg": 30.047238713552584,
+    "raw_complex_contact_diagnostics": {
+      "complex_l2": 0.06917528753463663,
+      "left_complex_jump": 0.07033207748941081,
+      "right_complex_jump": 0.06799882121789187,
+      "left_amplitude_jump": 0.06930030407275067,
+      "right_amplitude_jump": 0.06735088004884637
+    },
+    "visual_amplitude_jump_theta_0_2pi": 0.06735088004884637,
+    "visual_amplitude_jump_theta_pi_one_grid_step": 0.06296331768633445,
+    "grid_step_rad": 0.008726646259971549
+  },
+  "physics_losses": {
+    "test10": {
+      "total": 9672.366711018363,
+      "particle_momentum": 146.56379520399267,
+      "particle_fluid": 0.2948806542314316,
+      "p2g_momentum": 109.09534986809595,
+      "p2g_fluid": 0.05995669948912352,
+      "surface_traction": 1.263555177412587,
+      "outer_flux": 1.0241789285849237,
+      "pipe_flux": 6.71824539619885e-31,
+      "surface_constraint": 1.1240797024288747,
+      "outer_constraint": 1.0120172570588526,
+      "pipe_constraint": 1.490116119384768e-08,
+      "boundary_augmented": 50.87557676287485,
+      "roughness": 0.13393516667688835
+    },
+    "test49": {
+      "total": 169369.08203682525,
+      "particle_momentum": 13.358136101208995,
+      "particle_fluid": 55.96584223384299,
+      "p2g_momentum": 15.55382280403045,
+      "p2g_fluid": 0.7556260479047066,
+      "surface_traction": 0.660087162944841,
+      "outer_flux": 1.172177962037583,
+      "pipe_flux": 3.3391167836034115e-30,
+      "surface_constraint": 0.8124574837767459,
+      "outer_constraint": 1.0826716778587973,
+      "pipe_constraint": 1.490116119384777e-08,
+      "boundary_augmented": 42.506192309836415,
+      "roughness": 0.169470369439774
+    },
+    "water_test49": {
+      "total": 128.2217973254829,
+      "particle_momentum": 0.4466815324247372,
+      "particle_continuity": 0.37243104221702533,
+      "particle_pressure_laplace": 1.8746422104566332,
+      "p2g": 0.6231910984906018,
+      "free_surface": 0.5106731810977472,
+      "seabed_no_slip": 0.0,
+      "pipe_no_slip": 1.7792998810448517e-33,
+      "wall_momentum": 7.848415507436088,
+      "far_field": 0.004105775806488898,
+      "roughness": 0.007086406476289067
+    }
+  },
+  "clouds": {
+    "test10": {
+      "particles": 2380,
+      "levels": {
+        "background": 952,
+        "middle_pipe_annulus": 468,
+        "fine_pipe_annulus": 960
+      },
+      "p2g_nodes": 3969,
+      "bounds": [
+        -1.7241379310344829,
+        1.7241379310344829,
+        0.0,
+        1.0
+      ]
+    },
+    "test49": {
+      "particles": 1634,
+      "levels": {
+        "background": 866,
+        "middle_pipe_annulus": 288,
+        "fine_pipe_annulus": 480
+      },
+      "p2g_nodes": 3969,
+      "bounds": [
+        -1.7241379310344829,
+        1.7241379310344829,
+        0.0,
+        1.0
+      ]
+    },
+    "water_test49": {
+      "particles": 2946,
+      "levels": {
+        "water_background": 1186,
+        "exposed_pipe_annulus": 640,
+        "pipe_boundary_layer_level4": 1120
+      },
+      "p2g_nodes": 5917,
+      "bounds": [
+        -1.7241379310344829,
+        1.7241379310344829,
+        0.7413793103448275,
+        1.6896551724137931
+      ]
+    }
+  },
+  "prediction_ranges": {
+    "test10": {
+      "combined_pressure": [
+        0.22922146988754266,
+        0.715606015597532
+      ],
+      "pore_pressure": [
+        0.22922146988754266,
+        0.715606015597532
+      ]
+    },
+    "test49": {
+      "combined_pressure": [
+        0.44116926064289647,
+        0.9578319139424492
+      ],
+      "pore_pressure": [
+        0.44116926064289647,
+        0.9578319139424492
+      ],
+      "hydrodynamic_pressure": [
+        0.8818884726580195,
+        0.8904810338936028
+      ]
+    }
+  }
+}

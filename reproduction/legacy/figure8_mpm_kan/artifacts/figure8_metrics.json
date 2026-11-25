@@ -1,0 +1,122 @@
+{
+  "metric_definition": {
+    "relative_l2": "||model - data||_2 / ||data||_2",
+    "interpolation": "model linearly interpolated at each digitized depth",
+    "training_use": "digitized curves are validation only and are not in the loss"
+  },
+  "mpm_kan": {
+    "experimental": {
+      "n": 10,
+      "relative_l2": 0.052453202736533706,
+      "rmse": 0.038722794953567216,
+      "mae": 0.024597106222820696,
+      "max_abs": 0.1041539363628699
+    },
+    "analytical": {
+      "n": 124,
+      "relative_l2": 0.012260165068612926,
+      "rmse": 0.008010948290583084,
+      "mae": 0.007574163676522103,
+      "max_abs": 0.0116587654574426
+    },
+    "paper_numerical": {
+      "n": 119,
+      "relative_l2": 0.0025222161556576433,
+      "rmse": 0.0016182114098327175,
+      "mae": 0.0013197941893842793,
+      "max_abs": 0.004098851194677788
+    },
+    "finite_difference_reference": {
+      "n": 501,
+      "relative_l2": 5.950508323775451e-05,
+      "rmse": 3.6888019785544774e-05,
+      "mae": 3.044814549113229e-05,
+      "max_abs": 6.860005119657675e-05
+    }
+  },
+  "finite_difference_reference": {
+    "experimental": {
+      "n": 10,
+      "relative_l2": 0.05243436637911791,
+      "rmse": 0.03870888929351539,
+      "mae": 0.024589113899327653,
+      "max_abs": 0.10410335292562589
+    },
+    "analytical": {
+      "n": 124,
+      "relative_l2": 0.012232561543804948,
+      "rmse": 0.00799291179526373,
+      "mae": 0.007563234043538295,
+      "max_abs": 0.011620828175111508
+    },
+    "paper_numerical": {
+      "n": 119,
+      "relative_l2": 0.0025317496901109716,
+      "rmse": 0.0016243279649875183,
+      "mae": 0.0013318662959637972,
+      "max_abs": 0.004116580714406459
+    }
+  },
+  "data_quality": {
+    "file": "figure8_mpm_kan\\data\\figure8.csv",
+    "rows": 124,
+    "columns": [
+      "Experimental_data_x",
+      "Experimental_data_y",
+      "Analytical_Solution_x",
+      "Analytical_Solution_y",
+      "Numerical_Solution_x",
+      "Numerical_Solution_y"
+    ],
+    "sources": {
+      "experimental": {
+        "n": 10,
+        "pressure_range": [
+          0.504626636205584,
+          0.991745333850597
+        ],
+        "depth_range": [
+          -0.831871219464314,
+          -0.0375759174508915
+        ],
+        "duplicate_depths": 0
+      },
+      "analytical": {
+        "n": 124,
+        "pressure_range": [
+          0.400175294912137,
+          0.999206143942986
+        ],
+        "depth_range": [
+          -0.900119627498374,
+          -0.00224163527722913
+        ],
+        "duplicate_depths": 0
+      },
+      "paper_numerical": {
+        "n": 119,
+        "pressure_range": [
+          0.388141730246993,
+          0.999446815236289
+        ],
+        "depth_range": [
+          -0.899393580604395,
+          -0.00175760401457624
+        ],
+        "duplicate_depths": 0
+      }
+    },
+    "warnings": []
+  },
+  "final_physics_loss": {
+    "total": 0.0006566658014458153,
+    "momentum": 1.8732057069605914e-05,
+    "fluid": 2.8019854425130853e-07,
+    "strong": 0.0005996604430404911,
+    "boundary": 5.871865306323094e-08,
+    "roughness": 0.05641057224084563,
+    "top_sigma_z": 4.083967601799928e-08,
+    "top_tau_xz": 3.1946233140655385e-09,
+    "bottom_flux": 1.4684353731166124e-08
+  }
+}

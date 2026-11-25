@@ -16,6 +16,7 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest>=8", "ruff>=0.6"]
+reproduction = ["pandas>=2.0", "scipy>=1.13", "deepxde==1.14.0"]
 
 [project.scripts]
 seakan = "mpm_kan_generalization.cli:main"
