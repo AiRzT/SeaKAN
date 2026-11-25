@@ -129,16 +129,3 @@ cd data\comsol_clean_suite
 ## License
 
 This project is released under the [MIT License](LICENSE).
-
-## Citation
-
-If you use this code or dataset in your research, please cite:
-
-```bibtex
-@misc{Cai2026SeaKAN,
-  author  = {Erxuan Cai and Jing Li and Zhiran Gao and Zhexi Xu and Lewei Feng and Minjie Wen and Yiming Zhang},
-  title   = {Physics-Informed {Kolmogorov--Arnold} Networks for Wave--Seabed--Pipeline Interaction},
-  year    = {2026},
-  url     = {https://github.com/AiRzT/SeaKAN}
-}
-```
