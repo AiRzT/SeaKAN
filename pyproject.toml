@@ -4,19 +4,21 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "seakan-framework"
-version = "0.3.0"
-description = "SeaKAN physics-only framework for parameterised wave-seabed interaction"
+version = "1.0.0"
+description = "SeaKAN and MF-SeaKAN: Physics-Informed Kolmogorov-Arnold Networks for Wave-Seabed-Pipeline Interaction"
 readme = "README.md"
+license = { file = "LICENSE" }
 requires-python = ">=3.11"
 dependencies = [
   "matplotlib>=3.8",
   "numpy>=1.26",
+  "pandas>=2.1",
+  "scipy>=1.12",
   "torch>=2.4",
 ]
 
 [project.optional-dependencies]
 dev = ["pytest>=8", "ruff>=0.6"]
-reproduction = ["pandas>=2.0", "scipy>=1.13", "deepxde==1.14.0"]
 
 [project.scripts]
 seakan = "mpm_kan_generalization.cli:main"

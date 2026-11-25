@@ -1,0 +1,28 @@
+{
+  "method": "standard_kinn",
+  "method_label": "Standard KINN",
+  "parameters": 13131,
+  "seed": 202409,
+  "adam_steps": 1200,
+  "lbfgs_steps_total": 520,
+  "lbfgs_evaluations": 531,
+  "elapsed_seconds": 1053.2015799001092,
+  "metrics": {
+    "experimental": {
+      "relative_l2": 2.429944057989898,
+      "mse": 0.6805205035192556,
+      "rmse": 0.8249366663685496,
+      "r2": -20.35909177884908,
+      "mae": 0.8009850883286734,
+      "max_abs": 1.069474590651702
+    },
+    "zhu_numerical": {
+      "relative_l2": 1.658344777546503,
+      "mse": 0.5126360101077326,
+      "rmse": 0.7159860404419437,
+      "r2": -13.885591423417182,
+      "mae": 0.6875817616442041,
+      "max_abs": 1.0870740422693026
+    }
+  }
+}

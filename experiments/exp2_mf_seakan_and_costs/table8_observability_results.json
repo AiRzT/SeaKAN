@@ -1,0 +1,669 @@
+{
+  "per_case_condition_numbers": [
+    {
+      "paper_id": "B1",
+      "case_id": "blind_000",
+      "kappa_wall_amp_joint": 3.9919557571411133,
+      "kappa_interior_complex_joint": 10.811690330505371,
+      "kappa_interior_complex_k_only": 1.0
+    },
+    {
+      "paper_id": "B2",
+      "case_id": "blind_001",
+      "kappa_wall_amp_joint": 4.453433513641357,
+      "kappa_interior_complex_joint": 12.31441593170166,
+      "kappa_interior_complex_k_only": 1.0
+    },
+    {
+      "paper_id": "B3",
+      "case_id": "B6",
+      "kappa_wall_amp_joint": 3.491316795349121,
+      "kappa_interior_complex_joint": 14.613107681274414,
+      "kappa_interior_complex_k_only": 1.0
+    },
+    {
+      "paper_id": "B4",
+      "case_id": "B7",
+      "kappa_wall_amp_joint": 3.9849419593811035,
+      "kappa_interior_complex_joint": 14.198637962341309,
+      "kappa_interior_complex_k_only": 1.0
+    },
+    {
+      "paper_id": "B5",
+      "case_id": "B8",
+      "kappa_wall_amp_joint": 4.098171710968018,
+      "kappa_interior_complex_joint": 11.713215827941895,
+      "kappa_interior_complex_k_only": 1.0
+    },
+    {
+      "paper_id": "B6",
+      "case_id": "B9",
+      "kappa_wall_amp_joint": 5.357565879821777,
+      "kappa_interior_complex_joint": 17.834794998168945,
+      "kappa_interior_complex_k_only": 1.0
+    },
+    {
+      "paper_id": "B7",
+      "case_id": "B10",
+      "kappa_wall_amp_joint": 8.220494270324707,
+      "kappa_interior_complex_joint": 3.8312647342681885,
+      "kappa_interior_complex_k_only": 1.0
+    },
+    {
+      "paper_id": "B8",
+      "case_id": "B11",
+      "kappa_wall_amp_joint": 2.9637815952301025,
+      "kappa_interior_complex_joint": 13.851311683654785,
+      "kappa_interior_complex_k_only": 1.0
+    }
+  ],
+  "mean_condition_numbers": {
+    "wall_amp_joint": 4.5702076852321625,
+    "interior_complex_joint": 12.396054893732071,
+    "interior_complex_k_only": 1.0
+  },
+  "comsol_8case_summary": {
+    "wall_amp_joint_0pct": {
+      "modality": "wall_amp",
+      "invert_mode": "joint",
+      "noise_pct": 0.0,
+      "E_k_pct_mean": 11.21159375906142,
+      "E_k_pct_sd": 3.6654785177693774,
+      "E_bD_pct_mean": 4.756103628882061,
+      "E_bD_pct_sd": 2.2856622094806918,
+      "kappa_inv_mean": 4.5702076852321625,
+      "per_case": [
+        {
+          "paper_id": "B1",
+          "case_id": "blind_000",
+          "E_k_pct": 7.0153892543400325,
+          "E_bD_pct": 1.1898878066227663
+        },
+        {
+          "paper_id": "B2",
+          "case_id": "blind_001",
+          "E_k_pct": 16.48137787604858,
+          "E_bD_pct": 8.63539849942745
+        },
+        {
+          "paper_id": "B3",
+          "case_id": "B6",
+          "E_k_pct": 11.14355163352395,
+          "E_bD_pct": 5.530183211616841
+        },
+        {
+          "paper_id": "B4",
+          "case_id": "B7",
+          "E_k_pct": 13.366084981064951,
+          "E_bD_pct": 5.750009748670796
+        },
+        {
+          "paper_id": "B5",
+          "case_id": "B8",
+          "E_k_pct": 7.408241092020445,
+          "E_bD_pct": 3.0330467224121094
+        },
+        {
+          "paper_id": "B6",
+          "case_id": "B9",
+          "E_k_pct": 7.994740504746968,
+          "E_bD_pct": 3.4249867711748334
+        },
+        {
+          "paper_id": "B7",
+          "case_id": "B10",
+          "E_k_pct": 15.566634930049382,
+          "E_bD_pct": 6.243063509464269
+        },
+        {
+          "paper_id": "B8",
+          "case_id": "B11",
+          "E_k_pct": 10.716729800697061,
+          "E_bD_pct": 4.242252761667426
+        }
+      ]
+    },
+    "wall_amp_joint_1pct": {
+      "modality": "wall_amp",
+      "invert_mode": "joint",
+      "noise_pct": 1.0,
+      "E_k_pct_mean": 11.260940098707875,
+      "E_k_pct_sd": 3.579134568884808,
+      "E_bD_pct_mean": 4.760750053430015,
+      "E_bD_pct_sd": 2.1981351827457742,
+      "kappa_inv_mean": 4.5702076852321625,
+      "per_case": [
+        {
+          "paper_id": "B1",
+          "case_id": "blind_000",
+          "E_k_pct": 7.65248214244824,
+          "E_bD_pct": 1.3793787268116513
+        },
+        {
+          "paper_id": "B2",
+          "case_id": "blind_001",
+          "E_k_pct": 16.354938678969454,
+          "E_bD_pct": 8.49226024689004
+        },
+        {
+          "paper_id": "B3",
+          "case_id": "B6",
+          "E_k_pct": 10.767717996019536,
+          "E_bD_pct": 5.2863307621167985
+        },
+        {
+          "paper_id": "B4",
+          "case_id": "B7",
+          "E_k_pct": 13.279517876127585,
+          "E_bD_pct": 5.767361323038743
+        },
+        {
+          "paper_id": "B5",
+          "case_id": "B8",
+          "E_k_pct": 7.766591705795799,
+          "E_bD_pct": 3.1401519775390625
+        },
+        {
+          "paper_id": "B6",
+          "case_id": "B9",
+          "E_k_pct": 7.347113261685564,
+          "E_bD_pct": 3.2453281538827015
+        },
+        {
+          "paper_id": "B7",
+          "case_id": "B10",
+          "E_k_pct": 15.602844945775967,
+          "E_bD_pct": 6.243905425071722
+        },
+        {
+          "paper_id": "B8",
+          "case_id": "B11",
+          "E_k_pct": 11.316314182840864,
+          "E_bD_pct": 4.5312838120894
+        }
+      ]
+    },
+    "interior_complex_joint_0pct": {
+      "modality": "interior_complex",
+      "invert_mode": "joint",
+      "noise_pct": 0.0,
+      "E_k_pct_mean": 2.710168591656159,
+      "E_k_pct_sd": 2.483057661539421,
+      "E_bD_pct_mean": 22.045259715073158,
+      "E_bD_pct_sd": 18.515179916945563,
+      "kappa_inv_mean": 12.396054893732071,
+      "per_case": [
+        {
+          "paper_id": "B1",
+          "case_id": "blind_000",
+          "E_k_pct": 2.591154773041503,
+          "E_bD_pct": 62.54638575698179
+        },
+        {
+          "paper_id": "B2",
+          "case_id": "blind_001",
+          "E_k_pct": 3.957862856665662,
+          "E_bD_pct": 16.44324055558967
+        },
+        {
+          "paper_id": "B3",
+          "case_id": "B6",
+          "E_k_pct": 0.8478945798494563,
+          "E_bD_pct": 18.355060660320774
+        },
+        {
+          "paper_id": "B4",
+          "case_id": "B7",
+          "E_k_pct": 2.99938452573349,
+          "E_bD_pct": 15.018134646945533
+        },
+        {
+          "paper_id": "B5",
+          "case_id": "B8",
+          "E_k_pct": 0.6395874958899349,
+          "E_bD_pct": 10.461483001708984
+        },
+        {
+          "paper_id": "B6",
+          "case_id": "B9",
+          "E_k_pct": 0.4365044560185443,
+          "E_bD_pct": 11.900000912802556
+        },
+        {
+          "paper_id": "B7",
+          "case_id": "B10",
+          "E_k_pct": 2.1792362128811242,
+          "E_bD_pct": 6.244195997715002
+        },
+        {
+          "paper_id": "B8",
+          "case_id": "B11",
+          "E_k_pct": 8.02972383316956,
+          "E_bD_pct": 35.39357618852095
+        }
+      ]
+    },
+    "interior_complex_joint_1pct": {
+      "modality": "interior_complex",
+      "invert_mode": "joint",
+      "noise_pct": 1.0,
+      "E_k_pct_mean": 2.7150142006814404,
+      "E_k_pct_sd": 2.4985474209995537,
+      "E_bD_pct_mean": 21.960466752912637,
+      "E_bD_pct_sd": 18.490075690088887,
+      "kappa_inv_mean": 12.396054893732071,
+      "per_case": [
+        {
+          "paper_id": "B1",
+          "case_id": "blind_000",
+          "E_k_pct": 2.5662045642207927,
+          "E_bD_pct": 62.479960777326404
+        },
+        {
+          "paper_id": "B2",
+          "case_id": "blind_001",
+          "E_k_pct": 3.9286018889454817,
+          "E_bD_pct": 16.50352004353702
+        },
+        {
+          "paper_id": "B3",
+          "case_id": "B6",
+          "E_k_pct": 0.9243966440077497,
+          "E_bD_pct": 18.05960199107294
+        },
+        {
+          "paper_id": "B4",
+          "case_id": "B7",
+          "E_k_pct": 3.0249018687754785,
+          "E_bD_pct": 15.025087639137556
+        },
+        {
+          "paper_id": "B5",
+          "case_id": "B8",
+          "E_k_pct": 0.6227202092607877,
+          "E_bD_pct": 10.361722946166992
+        },
+        {
+          "paper_id": "B6",
+          "case_id": "B9",
+          "E_k_pct": 0.39564995401490444,
+          "E_bD_pct": 11.849481718880785
+        },
+        {
+          "paper_id": "B7",
+          "case_id": "B10",
+          "E_k_pct": 2.1714691281279834,
+          "E_bD_pct": 6.23969435691834
+        },
+        {
+          "paper_id": "B8",
+          "case_id": "B11",
+          "E_k_pct": 8.086169348098343,
+          "E_bD_pct": 35.164664550261065
+        }
+      ]
+    },
+    "interior_complex_k_only_1pct": {
+      "modality": "interior_complex",
+      "invert_mode": "k_only",
+      "noise_pct": 1.0,
+      "E_k_pct_mean": 3.936350379331425,
+      "E_k_pct_sd": 3.077201039117565,
+      "E_bD_pct_mean": 0.0,
+      "E_bD_pct_sd": 0.0,
+      "kappa_inv_mean": 1.0,
+      "per_case": [
+        {
+          "paper_id": "B1",
+          "case_id": "blind_000",
+          "E_k_pct": 5.080942358120646,
+          "E_bD_pct": 0.0
+        },
+        {
+          "paper_id": "B2",
+          "case_id": "blind_001",
+          "E_k_pct": 4.099021135609682,
+          "E_bD_pct": 0.0
+        },
+        {
+          "paper_id": "B3",
+          "case_id": "B6",
+          "E_k_pct": 2.956251224333593,
+          "E_bD_pct": 0.0
+        },
+        {
+          "paper_id": "B4",
+          "case_id": "B7",
+          "E_k_pct": 3.659895957949061,
+          "E_bD_pct": 0.0
+        },
+        {
+          "paper_id": "B5",
+          "case_id": "B8",
+          "E_k_pct": 2.0232757579328347,
+          "E_bD_pct": 0.0
+        },
+        {
+          "paper_id": "B6",
+          "case_id": "B9",
+          "E_k_pct": 0.7963311956509218,
+          "E_bD_pct": 0.0
+        },
+        {
+          "paper_id": "B7",
+          "case_id": "B10",
+          "E_k_pct": 2.085584027615063,
+          "E_bD_pct": 0.0
+        },
+        {
+          "paper_id": "B8",
+          "case_id": "B11",
+          "E_k_pct": 10.789501377439597,
+          "E_bD_pct": 0.0
+        }
+      ]
+    }
+  },
+  "self_consistent_8case_summary": {
+    "wall_amp_joint_0pct": {
+      "modality": "wall_amp",
+      "invert_mode": "joint",
+      "noise_pct": 0.0,
+      "E_k_pct_mean": 0.014364003354141185,
+      "E_k_pct_sd": 0.01798153310786269,
+      "E_bD_pct_mean": 0.004799372805515423,
+      "E_bD_pct_sd": 0.005836517516341277,
+      "kappa_inv_mean": 4.5702076852321625,
+      "per_case": [
+        {
+          "paper_id": "B1",
+          "case_id": "blind_000",
+          "E_k_pct": 0.006453209548793787,
+          "E_bD_pct": 0.0023145460896981077
+        },
+        {
+          "paper_id": "B2",
+          "case_id": "blind_001",
+          "E_k_pct": 0.019021980170137048,
+          "E_bD_pct": 0.006045764990807092
+        },
+        {
+          "paper_id": "B3",
+          "case_id": "B6",
+          "E_k_pct": 0.002732572399753565,
+          "E_bD_pct": 0.0004892763884093963
+        },
+        {
+          "paper_id": "B4",
+          "case_id": "B7",
+          "E_k_pct": 0.008439838599691435,
+          "E_bD_pct": 0.003486209445536093
+        },
+        {
+          "paper_id": "B5",
+          "case_id": "B8",
+          "E_k_pct": 0.010001915507012267,
+          "E_bD_pct": 0.0037288665771484375
+        },
+        {
+          "paper_id": "B6",
+          "case_id": "B9",
+          "E_k_pct": 0.01101411364384938,
+          "E_bD_pct": 0.0024284635271281424
+        },
+        {
+          "paper_id": "B7",
+          "case_id": "B10",
+          "E_k_pct": 0.05665747788346429,
+          "E_bD_pct": 0.018627941608423404
+        },
+        {
+          "paper_id": "B8",
+          "case_id": "B11",
+          "E_k_pct": 0.0005909190804277164,
+          "E_bD_pct": 0.001273913816972717
+        }
+      ]
+    },
+    "wall_amp_joint_1pct": {
+      "modality": "wall_amp",
+      "invert_mode": "joint",
+      "noise_pct": 1.0,
+      "E_k_pct_mean": 0.8686387839627123,
+      "E_k_pct_sd": 0.33142927829474395,
+      "E_bD_pct_mean": 0.29586272844928135,
+      "E_bD_pct_sd": 0.08090202042479855,
+      "kappa_inv_mean": 4.5702076852321625,
+      "per_case": [
+        {
+          "paper_id": "B1",
+          "case_id": "blind_000",
+          "E_k_pct": 1.045891685710595,
+          "E_bD_pct": 0.25663978325387804
+        },
+        {
+          "paper_id": "B2",
+          "case_id": "blind_001",
+          "E_k_pct": 0.900144504109968,
+          "E_bD_pct": 0.27307400626417866
+        },
+        {
+          "paper_id": "B3",
+          "case_id": "B6",
+          "E_k_pct": 0.398196431130846,
+          "E_bD_pct": 0.27027544767961037
+        },
+        {
+          "paper_id": "B4",
+          "case_id": "B7",
+          "E_k_pct": 0.5579517179956787,
+          "E_bD_pct": 0.30928329185203396
+        },
+        {
+          "paper_id": "B5",
+          "case_id": "B8",
+          "E_k_pct": 0.8338325237855327,
+          "E_bD_pct": 0.2320270538330078
+        },
+        {
+          "paper_id": "B6",
+          "case_id": "B9",
+          "E_k_pct": 0.9653961447704769,
+          "E_bD_pct": 0.24927547999790614
+        },
+        {
+          "paper_id": "B7",
+          "case_id": "B10",
+          "E_k_pct": 1.4965591819297217,
+          "E_bD_pct": 0.48725724220275984
+        },
+        {
+          "paper_id": "B8",
+          "case_id": "B11",
+          "E_k_pct": 0.7511380822688798,
+          "E_bD_pct": 0.28906952251087586
+        }
+      ]
+    },
+    "interior_complex_joint_0pct": {
+      "modality": "interior_complex",
+      "invert_mode": "joint",
+      "noise_pct": 0.0,
+      "E_k_pct_mean": 0.02040607802983422,
+      "E_k_pct_sd": 0.04580135488746302,
+      "E_bD_pct_mean": 0.09795915092818647,
+      "E_bD_pct_sd": 0.22807583493006842,
+      "kappa_inv_mean": 12.396054893732071,
+      "per_case": [
+        {
+          "paper_id": "B1",
+          "case_id": "blind_000",
+          "E_k_pct": 0.015286692184390388,
+          "E_bD_pct": 0.08363745116577515
+        },
+        {
+          "paper_id": "B2",
+          "case_id": "blind_001",
+          "E_k_pct": 0.13300823546281815,
+          "E_bD_pct": 0.6583634607615898
+        },
+        {
+          "paper_id": "B3",
+          "case_id": "B6",
+          "E_k_pct": 0.0020777362144770565,
+          "E_bD_pct": 0.001940519913375429
+        },
+        {
+          "paper_id": "B4",
+          "case_id": "B7",
+          "E_k_pct": 0.0014101441662957546,
+          "E_bD_pct": 0.0016936549434021229
+        },
+        {
+          "paper_id": "B5",
+          "case_id": "B8",
+          "E_k_pct": 0.009007534633073865,
+          "E_bD_pct": 0.010480880737304688
+        },
+        {
+          "paper_id": "B6",
+          "case_id": "B9",
+          "E_k_pct": 0.001718812180971613,
+          "E_bD_pct": 0.013145378657756066
+        },
+        {
+          "paper_id": "B7",
+          "case_id": "B10",
+          "E_k_pct": 0.0005573179805676642,
+          "E_bD_pct": 0.0014066696167047699
+        },
+        {
+          "paper_id": "B8",
+          "case_id": "B11",
+          "E_k_pct": 0.00018215141607927262,
+          "E_bD_pct": 0.01300519162958369
+        }
+      ]
+    },
+    "interior_complex_joint_1pct": {
+      "modality": "interior_complex",
+      "invert_mode": "joint",
+      "noise_pct": 1.0,
+      "E_k_pct_mean": 0.12338294993015494,
+      "E_k_pct_sd": 0.044984416451300656,
+      "E_bD_pct_mean": 0.4159643500508986,
+      "E_bD_pct_sd": 0.17382715345624217,
+      "kappa_inv_mean": 12.396054893732071,
+      "per_case": [
+        {
+          "paper_id": "B1",
+          "case_id": "blind_000",
+          "E_k_pct": 0.0845703929734817,
+          "E_bD_pct": 0.2781066403139441
+        },
+        {
+          "paper_id": "B2",
+          "case_id": "blind_001",
+          "E_k_pct": 0.1975229491173244,
+          "E_bD_pct": 0.7783048974293839
+        },
+        {
+          "paper_id": "B3",
+          "case_id": "B6",
+          "E_k_pct": 0.1868189668113528,
+          "E_bD_pct": 0.422102472056521
+        },
+        {
+          "paper_id": "B4",
+          "case_id": "B7",
+          "E_k_pct": 0.12660832430880628,
+          "E_bD_pct": 0.47680501584653634
+        },
+        {
+          "paper_id": "B5",
+          "case_id": "B8",
+          "E_k_pct": 0.1032008691173448,
+          "E_bD_pct": 0.36428070068359375
+        },
+        {
+          "paper_id": "B6",
+          "case_id": "B9",
+          "E_k_pct": 0.08208340205448127,
+          "E_bD_pct": 0.43856893266950464
+        },
+        {
+          "paper_id": "B7",
+          "case_id": "B10",
+          "E_k_pct": 0.11298106993005148,
+          "E_bD_pct": 0.18509358167648204
+        },
+        {
+          "paper_id": "B8",
+          "case_id": "B11",
+          "E_k_pct": 0.0932776251283967,
+          "E_bD_pct": 0.3844525597312233
+        }
+      ]
+    },
+    "interior_complex_k_only_1pct": {
+      "modality": "interior_complex",
+      "invert_mode": "k_only",
+      "noise_pct": 1.0,
+      "E_k_pct_mean": 0.12708710245409455,
+      "E_k_pct_sd": 0.04429645951811635,
+      "E_bD_pct_mean": 0.0,
+      "E_bD_pct_sd": 0.0,
+      "kappa_inv_mean": 1.0,
+      "per_case": [
+        {
+          "paper_id": "B1",
+          "case_id": "blind_000",
+          "E_k_pct": 0.0891953516657286,
+          "E_bD_pct": 0.0
+        },
+        {
+          "paper_id": "B2",
+          "case_id": "blind_001",
+          "E_k_pct": 0.16057443554704082,
+          "E_bD_pct": 0.0
+        },
+        {
+          "paper_id": "B3",
+          "case_id": "B6",
+          "E_k_pct": 0.2164532807232297,
+          "E_bD_pct": 0.0
+        },
+        {
+          "paper_id": "B4",
+          "case_id": "B7",
+          "E_k_pct": 0.1388274555882565,
+          "E_bD_pct": 0.0
+        },
+        {
+          "paper_id": "B5",
+          "case_id": "B8",
+          "E_k_pct": 0.11220527088476426,
+          "E_bD_pct": 0.0
+        },
+        {
+          "paper_id": "B6",
+          "case_id": "B9",
+          "E_k_pct": 0.08375304285436759,
+          "E_bD_pct": 0.0
+        },
+        {
+          "paper_id": "B7",
+          "case_id": "B10",
+          "E_k_pct": 0.1181879270977015,
+          "E_bD_pct": 0.0
+        },
+        {
+          "paper_id": "B8",
+          "case_id": "B11",
+          "E_k_pct": 0.09750005527166741,
+          "E_bD_pct": 0.0
+        }
+      ]
+    }
+  }
+}

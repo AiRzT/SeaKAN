@@ -1,0 +1,6 @@
+method,elapsed_seconds,parameters,device,dtype,steps,seed,target_data_used_for_training,lbfgs_steps,lbfgs_evaluations,lbfgs_elapsed_seconds,dtype_finish,lbfgs_steps_total,epochs,training_supervision,held_out_target,time_scope
+deepxde_pinn,220.29521719994955,13062,cuda,torch.float32,1200.0,202409,False,400.0,404.0,53.03955159999896,torch.float64,520.0,,,,
+gpinn_rar,860.5269172000117,13062,cuda,torch.float32,1200.0,202409,False,120.0,124.0,18.291814900003374,torch.float64,520.0,,,,
+xpinn,558.704413999978,15858,cuda,torch.float32,1200.0,202409,False,120.0,124.0,39.85232200002065,torch.float64,520.0,,,,
+pino,40.23488850001013,793446,cuda,torch.float32,,202409,False,,,,,,500.0,26 independent finite-difference parameter cases,"{'period': 0.9, 'wavelength': 1.25, 'permeability': 0.0011, 'pipe_center_depth': 0.167, 'kappa': 4.1519288509842704, 'mass_pressure': 170.6161523852406, 'mass_strain': 66.37335976021267, 'linear_residual': 5.860787561226229e-13}",
+seakan,98.050265,5603,cuda,,,202409,False,,,,torch.float64,,,frequency-domain Biot residuals and boundary conditions,,final top-gap refinement stage only

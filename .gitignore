@@ -1,8 +1,28 @@
 __pycache__/
 *.py[cod]
-.pytest_cache/
 *.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
 .venv/
+venv/
+build/
+dist/
+*.mph
+*.class
+*.log
+*.pid
+*.ipynb
+.DS_Store
+Thumbs.db
+
+# Intermediate training caches created during full re-runs
+experiments/exp1_kinn_and_ablation/ablation_v5/
+experiments/exp1_kinn_and_ablation/stage1_cache_v5/
+experiments/exp1_kinn_and_ablation/stage2_cache_v5/
+experiments/reproduced_figures/
+
+# Outputs from the original reproduction workflows
 /runs/
 /results/
 /outputs/
