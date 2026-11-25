@@ -5,7 +5,7 @@ os.environ.setdefault("DDE_BACKEND", "pytorch")
 import numpy as np
 import torch
 
-from verify_tier1 import DATA, TABLE6, LEGACY, check_printed, load_benchmark, metrics, read_profile, seakan_profile
+from verify_tier1 import DATA, TABLE6, LEGACY, check_printed, load_benchmark, metrics, read_profile, seakan_model, seakan_profile
 from figure9_comparison.common import DeepXDEFNN, TorchMLP, physics_constants, pipe_profile
 from figure9_comparison.pointwise import PiecewiseXPINN
 from figure9_comparison.pino import PINO2d, PINOOptions, _case_arrays
@@ -42,7 +42,8 @@ def main():
     torch.set_default_device("cpu")
     wave, soil, geom = figure9_setup()
     const = physics_constants(wave, soil, geom)
-    profiles = {"seakan": (seakan_profile(), 5538)}
+    selected = seakan_model()
+    profiles = {"seakan": (seakan_profile(selected), sum(p.numel() for p in selected.parameters()))}
     for method, model in (("deepxde_pinn", DeepXDEFNN(64, 4)), ("gpinn_rar", TorchMLP(64, 4)),
                           ("xpinn", PiecewiseXPINN(40, 4, 0.35 / const.half_width))):
         model = model.to(dtype=torch.float64)
@@ -58,9 +59,8 @@ def main():
             np.testing.assert_allclose(profile[0], theta, atol=1e-7, rtol=0.)
             diff = np.max(np.abs(profile[1] - expected))
             print(f"  max absolute difference from archived profile: {diff:.8g}")
-            np.testing.assert_allclose(profile[1], expected, rtol=0.,
-                                       atol=3e-4 if method == "pino" else 1e-7,
-                                       err_msg=f"{method}: profile differs from the released prediction")
+            tolerance = 5e-4 if method == "pino" else 1e-10
+            np.testing.assert_allclose(profile[1], expected, atol=tolerance, rtol=0.)
         if method == "pino":
             # FP32/complex64 spectral convolution is sensitive to the FFT and GEMM backend.
             original = metrics(read_profile(DATA / "profiles/pino.csv"), ref)

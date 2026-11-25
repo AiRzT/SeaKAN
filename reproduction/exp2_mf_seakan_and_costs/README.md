@@ -28,6 +28,15 @@ python reproduction/exp2_mf_seakan_and_costs/exp2_mf_seakan_and_costs.py
 
 The first command trains the selected Table 7 configuration from scratch: 2,000 physics-only updates (seed 202418) followed by 800 calibration updates on 32 fields (seed 202438). It records the new weights and metrics in an unused directory. It defaults to CUDA; `--device cpu` is supported. GPU arithmetic and some parallel reductions can vary across runs.
 
+For the 32-field three-seed result in Table 11, train the other two correctors on that same frozen trunk:
+
+```bash
+python reproduction/exp2_mf_seakan_and_costs/retrain_mf32.py --trunk-checkpoint runs/fresh-mf32/trunk.pt --corrector-seed 202439 --output-dir runs/fresh-mf32-202439
+python reproduction/exp2_mf_seakan_and_costs/retrain_mf32.py --trunk-checkpoint runs/fresh-mf32/trunk.pt --corrector-seed 202440 --output-dir runs/fresh-mf32-202440
+```
+
+In each run, `metrics.json` includes the eight-case mean relative amplitude error as `mf32_test.mean_amplitude_l2` (a fraction). Multiply each of the three run values by 100, then compute their arithmetic mean and sample standard deviation (`ddof=1`). This targeted replication reuses the published trunk seed identity; the full experiment below repeats the original three-trunk validation selection.
+
 The second command runs the full published experiment: three physics trunks, the pure-data and multi-fidelity models at 4/8/16/32 fields with three seeds each, inversions, external flume models, and GPU/CPU cost and mesh comparisons. The transferred trunk is selected using the COMSOL validation set's complex-field relative error. The complete benchmark requires a CUDA-enabled PyTorch build. By default it writes new results under `reproduction/exp2_mf_seakan_and_costs/runs/`. The environment variable `SEAKAN_OUTPUT_DIR` selects another output directory. Existing trunk and flume checkpoints there are reused; select a new directory to start fresh. Fresh run times are machine-specific.
 
 ## COMSOL references

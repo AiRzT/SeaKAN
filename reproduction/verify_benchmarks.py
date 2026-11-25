@@ -76,8 +76,16 @@ def main():
     scores = compute_all()
     if scores["reconciliation"]["status"] != "passed":
         raise ValueError(f"Archived metrics differ: {scores['reconciliation']}")
+    medians = {}
+    for reference, printed in (("analytical", 1.22), ("numerical", 2.42)):
+        errors = [r["l2_percent"] for r in scores["comparisons"]
+                  if r["figure"] == "figure7" and r["reference_source"] == f"digitized_{reference}"]
+        if len(errors) != 16:
+            raise ValueError(f"Expected 16 soil-variable pairs for {reference}")
+        medians[reference] = float(np.median(errors))
+        np.testing.assert_allclose(medians[reference], printed, atol=0.005, rtol=0.)
     payload = {"checkpoint_evaluations": results, "archived_profile_comparisons": len(scores["comparisons"]),
-               "archive_reconciliation": scores["reconciliation"]}
+               "archive_reconciliation": scores["reconciliation"], "flat_seabed_median_relative_l2_percent": medians}
     report = json.dumps(payload, indent=2)
     (output / "verification.json").write_text(report + "\n", encoding="utf-8")
     print(report)

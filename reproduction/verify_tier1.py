@@ -27,6 +27,16 @@ TABLE6 = {
     "standard_kinn": (242.99, -20.3591, 165.83, -13.8856),
     "pino": (36.37, 0.5216, 29.17, 0.5394),
 }
+# Experimental and FEM MSE/RMSE. MSE is printed to four significant digits.
+TABLE6_SQUARED = {
+    "seakan": (.0003377, .01838, .003061, .05533),
+    "deepxde_pinn": (.7297, .85421, .5771, .75969),
+    "gpinn_rar": (.7291, .85386, .5841, .76429),
+    "xpinn": (.5053, .71085, .3993, .63189),
+    # The reviewed manuscript printed .82491 and .71596 for these RMSEs.
+    "standard_kinn": (.6805, .82494, .5126, .71599),
+    "pino": (.01524, .12346, .01586, .12595),
+}
 # Printed Table 10: mean and sample SD of Exp L2, Exp R2, FEM L2, FEM R2.
 TABLE10 = {
     "full_seakan": (10.91, 2.73, .955, .020, 16.80, 1.85, .846, .033),
@@ -36,16 +46,27 @@ TABLE10 = {
     "no_crown_refinement": (24.73, 9.23, .758, .158, 26.38, 5.29, .613, .149),
     "mlp_backbone": (159.93, 2.80, -8.254, .324, 106.47, 2.54, -5.138, .292),
 }
+# Size in Table 10 and supplementary physics scores from the ablation archive.
+TABLE10_PHYSICS = {
+    "full_seakan": (5538, 203.7, 13.6), "with_strong_p2g": (5538, 201.5, 26.6),
+    "no_local_branch": (4722, 150.6, 13.0), "no_weak_precond": (5538, 125.1, 15.5),
+    "no_crown_refinement": (5538, 2506.1, 3472.1), "mlp_backbone": (5652, 532.5, 71.3),
+}
 
 
-def seakan_profile():
+def seakan_model():
     wave, soil, geometry = figure9_setup()
     kappa = dimensionless_coefficients(wave, soil, geometry)["kappa"]
     base = PipeHarmonicKAN(geometry, kappa, dtype=torch.float64)
     model = TopGapLocalizedKAN(base, geometry, dtype=torch.float64)
     with np.load(DATA / "seakan_single_field.npz", allow_pickle=False) as weights:
         model.load_state_dict({name: torch.from_numpy(weights[name]) for name in weights})
-    model.eval()
+    return model.eval()
+
+
+def seakan_profile(model=None):
+    model = seakan_model() if model is None else model
+    _, _, geometry = figure9_setup()
     angle = torch.linspace(0., 2 * np.pi, 721, dtype=torch.float64)
     radius = geometry.radius_over_height
     xy = torch.stack((radius * torch.cos(angle), geometry.center_y + radius * torch.sin(angle)), dim=1)
@@ -59,14 +80,16 @@ def read_profile(path):
     return values["theta_rad"], values["normalized_pressure"]
 
 
-def metrics(profile, references):
-    values = []
+def reference_scores(profile, references):
     for key in REFERENCES:
         target_theta, target = references[key]
         prediction = periodic_interpolate(*profile, target_theta)
-        scores = error_metrics(prediction, target)
-        values.extend((100 * scores["relative_l2"], scores["r2"]))
-    return values
+        yield error_metrics(prediction, target)
+
+
+def metrics(profile, references):
+    return [value for scores in reference_scores(profile, references)
+            for value in (100 * scores["relative_l2"], scores["r2"])]
 
 
 def check_printed(label, calculated, printed, precision):
@@ -82,6 +105,8 @@ def main():
     ref = load_benchmark(LEGACY / "figure9_mpm_kan/data/figure9.csv")
     assert tuple(len(ref[name][0]) for name in REFERENCES) == (8, 163)
     row6, row10 = [], []
+    with (DATA / "ablation_physics.csv").open(encoding="utf-8", newline="") as stream:
+        physics = {(r["variant"], int(r["seed"])): r for r in csv.DictReader(stream)}
     for method, printed in TABLE6.items():
         profile = seakan_profile() if method == "seakan" else read_profile(DATA / "profiles" / f"{method}.csv")
         if method == "seakan":
@@ -94,22 +119,40 @@ def main():
             np.testing.assert_allclose(ref_curve, archived["normalized_pressure"], atol=1e-10, rtol=0.)
         result = metrics(profile, ref)
         check_printed(method, result, printed, [2, 4, 2, 4])
-        row6.append((method, *result))
+        squared = [s[k] for s in reference_scores(profile, ref) for k in ("mse", "rmse")]
+        printed_sq = TABLE6_SQUARED[method]
+        digits = [3 - int(np.floor(np.log10(v))) if i % 2 == 0 else 5 for i, v in enumerate(printed_sq)]
+        check_printed(method, squared, printed_sq, digits)
+        row6.append((method, *result, *squared))
     for variant, printed in TABLE10.items():
         scores = [metrics(read_profile(DATA / "ablation" / variant / f"seed_{seed}" / "profile.csv"), ref)
                   for seed in (202409, 202410, 202411)]
         mean, sd = np.mean(scores, axis=0), np.std(scores, axis=0, ddof=1)
         result = np.stack((mean, sd), axis=1).ravel()
         check_printed(variant, result, printed, [2, 2, 3, 3, 2, 2, 3, 3])
-        row10.append((variant, *result))
+        terms = {"particle_momentum": 10, "particle_fluid": 1000, "top_traction": 100,
+                 "outer_flux": 100, "pipe_flux": 300}
+        sizes, residuals = [], []
+        for seed in (202409, 202410, 202411):
+            record = physics[variant, seed]
+            sizes.append(int(record["parameters"]))
+            residuals.append(sum(w * float(record[k]) for k, w in terms.items()))
+        if len(set(sizes)) != 1:
+            raise ValueError(f"Inconsistent parameter counts for {variant}")
+        phys = (sizes[0], np.mean(residuals), np.std(residuals, ddof=1))
+        check_printed(variant, phys, TABLE10_PHYSICS[variant], [0, 1, 1])
+        row10.append((variant, *result, *phys))
     for row in row6:
         print(f"{row[0]:22s} Exp L2 {row[1]:8.3f}%  FEM L2 {row[3]:8.3f}%")
-    print("Verified six models (Table 6) and six three-seed variants (Table 10).")
+    print("Verified six profiles (Table 6, using corrected Standard KINN RMSEs) and "
+          "six three-seed variants (Table 10). Also checked the supplementary physics scores.")
     if args.output is not None:
         args.output.mkdir(parents=True, exist_ok=True)
         names = ["exp_l2_pct", "exp_r2", "fem_l2_pct", "fem_r2"]
-        for fn, head, rows in [("table6", names, row6),
-                               ("table10", [f"{n}_{s}" for n in names for s in ("mean", "sd")], row10)]:
+        sq_names = ["exp_mse", "exp_rmse", "fem_mse", "fem_rmse"]
+        phys_names = ["parameters", "physics_score_mean", "physics_score_sd"]
+        for fn, head, rows in [("table6", names + sq_names, row6),
+                               ("table10", [f"{n}_{s}" for n in names for s in ("mean", "sd")] + phys_names, row10)]:
             with (args.output / f"{fn}.csv").open("w", newline="", encoding="utf-8") as stream:
                 writer = csv.writer(stream)
                 writer.writerow(["model", *head])

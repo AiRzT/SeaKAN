@@ -22,11 +22,12 @@ SeaKAN requires Python 3.11 or newer. CUDA is used when a compatible PyTorch ins
 git clone https://github.com/AiRzT/SeaKAN.git
 cd SeaKAN
 python -m venv .venv
+source .venv/bin/activate
 python -m pip install --upgrade pip
 python -m pip install -e .
 ```
 
-For development and tests:
+In Windows PowerShell use `.\.venv\Scripts\Activate.ps1` for activation. For development and tests:
 
 ```bash
 python -m pip install -e ".[dev]"

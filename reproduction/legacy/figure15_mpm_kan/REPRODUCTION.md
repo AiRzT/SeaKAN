@@ -1,9 +1,10 @@
-# 从头复现 v1.3 检查点
+# 重训沟槽管道模型与复核发布检查点
 
-以下流程不会把 `figure15a.csv` 或 `figure15b.csv` 传入训练损失。
-CSV 只在最后的 `--evaluate-only` 阶段读取。
+本目录对应修订稿图 6 和表 5，文件名中的 15 是 Zhu 等（2024）的原图号。重算已发布结果可直接跳到第 7 步。要复核最后一次管壁训练，从第 6 步的两份历史权重开始。需要研究早期训练时，再运行第 1–5 步。这些步骤沿用 v1.3 项目的历史构建流程，这次核验没有从随机初值跑完整个流程。
 
-在项目根目录设置环境：
+训练损失仅包含物理方程、边界与界面残差。`figure15a.csv`、`figure15b.csv` 和它们的评分用于训练后的评估。旧版候选筛选也比较过这些评分，包括不同耦合方式对埋入段孔压误差的影响。
+
+在 `reproduction/legacy/figure15_mpm_kan` 下运行。训练步骤需要支持 CUDA 的 PyTorch，组装和评估支持 CPU。
 
 ```powershell
 $py = "python"
@@ -26,10 +27,14 @@ $env:PYTHONPATH = (Resolve-Path "src").Path
 
 ```powershell
 & $py scripts/train_rans_water.py `
-  --output outputs/rans_wall `
-  --steps 160 --float64-steps 40 `
-  --effective-viscosity 0.00015 `
-  --width 16 --hidden-layers 2
+  --output outputs/rans_fp32 --steps 160 --float64-steps 0 `
+  --learning-rate 0.0005 --effective-viscosity 0.00015 `
+  --width 16 --hidden-layers 2 --basis 9 --seed 202449 --log-every 20
+& $py scripts/train_rans_water.py `
+  --initial-checkpoint outputs/rans_fp32/water_test49_rans.pt `
+  --output outputs/rans_wall --steps 0 --float64-steps 40 `
+  --learning-rate 0.0003 --effective-viscosity 0.00015 `
+  --width 16 --hidden-layers 2 --basis 9 --seed 202449 --log-every 10
 ```
 
 该阶段训练强形式谐波不可压缩动量与连续方程、自由面条件、硬无滑移和远场入射波，
@@ -79,15 +84,37 @@ $env:PYTHONPATH = (Resolve-Path "src").Path
 接触增强由界面向土内按其垂向支撑尺度指数衰减，然后训练全局和近管 Soil-KAN。
 这一步避免把局部接触增压沿整个土层硬复制。
 
-## 6. 独立验证和绘图
+## 6. 从 v1.3 权重续训 30 步并组装最终检查点
+
+`artifacts/checkpoints/water_test49_before_wall_refinement.pt` 保存了旧版独立 RANS 水模型。其来源是步骤 2 对应的历史运行 `candidate32_rans_float64`。归档原件与旧 v1.3 独立水权重的 SHA-256 相同。`artifacts/checkpoints/figure15_before_wall_refinement.pt` 是 v1.3 选定的 `candidate53` 联合模型，含两种工况的土体网络和带接触增强的多孔界面。独立水权重用于优化暴露管壁，联合权重用于提供最后组装时继承的场。发布副本清除了原工作机的绝对路径，保留了每个张量及其精度。
+
+历史运行 `candidate56a_wall_physics` 将管壁动量权重从 0.5 提高到 10。优化器执行 30 步单精度 Adam，随后在双精度下评估全体材料点。运行以下命令可从两份历史输入重复最后阶段。
 
 ```powershell
-& $py run_figure15.py --device cuda --evaluate-only `
-  --checkpoint outputs/release_candidate/checkpoints/figure15.pt `
+& $py scripts/train_rans_water.py `
+  --initial-checkpoint artifacts/checkpoints/water_test49_before_wall_refinement.pt `
+  --output outputs/refined_wall --steps 30 --float64-steps 0 `
+  --learning-rate 0.0001 --effective-viscosity 0.00015 `
+  --width 16 --hidden-layers 2 --basis 9 `
+  --continuity-weight 8 --free-surface-weight 80 `
+  --wall-momentum-weight 10 --far-field-weight 1200 --seed 202449 --log-every 10
+& $py scripts/assemble_partitioned_checkpoint.py `
+  --base-checkpoint artifacts/checkpoints/figure15_before_wall_refinement.pt `
+  --rans-checkpoint outputs/refined_wall/water_test49_rans.pt `
+  --output outputs/final/checkpoints/figure15.pt
+```
+
+如要串联第 1–6 步的本次新训练，可在上面两条命令中分别用 `outputs/rans_wall/water_test49_rans.pt` 和 `outputs/release_candidate/checkpoints/figure15.pt` 替换两份发布的历史输入；第 3 步的 `--base-checkpoint` 同时指向第 1 步产生的 `outputs/base_physics/checkpoints/figure15.pt`。新优化的结果会随训练环境变化。
+
+## 7. 独立验证和绘图
+
+```powershell
+& $py run_figure15.py --device cpu --evaluate-only `
+  --checkpoint artifacts/checkpoints/figure15.pt `
   --output-dir outputs/release_validation
 ```
 
-此时才读取验证 CSV，并输出：
+要复核第 6 步新组装的文件，将 `--checkpoint` 改为 `outputs/final/checkpoints/figure15.pt`。主要输出如下。
 
 - `figure15_mpm_kan_pinn.png`
 - `figure15_metrics.json`
@@ -98,14 +125,4 @@ $env:PYTHONPATH = (Resolve-Path "src").Path
 `figure15_metrics.json` 的 `contact_continuity` 同时记录原始复压力跳变和
 `postprocessing_applied: false`；`run_config.json` 记录接触 KAN 架构与训练来源。
 
-## 7. 接受标准
-
-发布候选必须同时满足：
-
-1. 检查点元数据确认图 15 CSV 未进入训练；
-2. 独立进程能重载检查点；
-3. 两接触点原始复压力跳变均小于 `2e-4`；
-4. 极坐标曲线无断裂、角度翻转或上下半圆拼接错误；
-5. Test 49 论文孔压曲线相对 L2 小于 6%；
-6. 物理残差有限，硬无滑移达到数值精度；
-7. 单元测试和安装后评估均通过。
+本次核验实际在 CPU 上使用历史 `candidate56a` 训练后的水模型和公开的 v1.3 联合输入重新组装。所得模型与最终发布模型的 132 项张量逐项相同。独立评估给出 Test 49 的实验点误差 8.292677%、整圈数值界面误差 3.544513%、埋入弧和暴露弧数值误差分别为 5.858715% 和 1.903527%。30 步 CUDA 优化的参数已对照历史运行记录，此次未重新执行该优化。
