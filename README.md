@@ -135,11 +135,10 @@ This project is released under the [MIT License](LICENSE).
 If you use this code or dataset in your research, please cite:
 
 ```bibtex
-@article{Cai2026SeaKAN,
+@misc{Cai2026SeaKAN,
   author  = {Erxuan Cai and Jing Li and Zhiran Gao and Zhexi Xu and Lewei Feng and Minjie Wen and Yiming Zhang},
   title   = {Physics-Informed {Kolmogorov--Arnold} Networks for Wave--Seabed--Pipeline Interaction},
-  journal = {Applied Ocean Research},
   year    = {2026},
-  note    = {Under review; code and data at https://github.com/AiRzT/SeaKAN}
+  url     = {https://github.com/AiRzT/SeaKAN}
 }
 ```
